@@ -33,25 +33,25 @@
 
             <div class="table-container">
                 <table class="table">
-                    <thead>
+                    <thead class="table-header">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Actions</th>
+                            <th class="content-title">ID</th>
+                            <th class="content">Name</th>
+                            <th class="content">Email</th>
+                            <th class="content">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->id }}</td>
-                                <td>Visualizar Editar Apagar</td>
+                            <tr class="table-header">
+                                <td class="content">{{ $user->id }}</td>
+                                <td class="content">{{ $user->email }}</td>
+                                <td class="content">{{ $user->id }}</td>
+                                <td class="content">Visualizar Editar Apagar</td>
                             </tr>
                         @empty
                             <div>
-                                Anyone user found
+                                <p>Anyone user found</p>
                             </div>
                         @endforelse
                     </tbody>
