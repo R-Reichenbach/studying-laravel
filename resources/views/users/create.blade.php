@@ -26,7 +26,7 @@
         <div class="content">
             <div class="content-title">
                 <h1 class="page-title">Register</h1>
-                <a href="#" class="btn-primary">List</a>
+                <a href="{{ route('user.index') }}" class="btn-primary">List</a>
             </div>
 
             <x-alert />

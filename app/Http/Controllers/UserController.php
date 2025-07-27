@@ -13,6 +13,12 @@ class UserController extends Controller
         return view('users.create');
     }
 
+    public function index(){
+       $users = User::orderByDesc('id')->paginate(10);
+
+        return view('users.index', ['users'=> $users]);
+    }
+
     public function store(UserRequest $request)
     {
         // dd($request);
