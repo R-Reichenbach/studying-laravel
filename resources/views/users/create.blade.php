@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    @vite(['resources/css/app.css'])
 </head>
+
 <body>
-    <h1>Register Page</h1>
 
-    @if (session('success'))
-        <p style="color: green;">
-        {{ session('success') }}
-        </p>
-    
-    @endif
-    @if (session('error'))
-        <p style="color: red;">
-        {{ session('error') }}
-        </p>
-    @endif
+    <div class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <h2 class="title-logo"><a href=" {{ Route('dashboard') }}">Reichenbach</a></h2>
+                <ul class="list-nav-link">
+                    <li>
+                        <a href="#" class="nav-link">Users</a>
+                        <a href="{{ Route('dashboard') }}" class="nav-link">Exit</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
-    <form action="{{ Route('user.store')}}" method="POST">
-        @csrf 
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" placeholder="Complete Name" value="{{ old('name') }}" required><br>
 
-        <label for="Email:">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email Address" value="{{ old('email') }}" required><br>
+        <div class="content">
+            <div class="content-title">
+                <h1 class="page-title">Register</h1>
+                <a href="#" class="btn-primary">List</a>
+            </div>
 
-        <label for="Password:">Password:</label>
-        <input type="password" name="password" id="password" placeholder="Password" value="{{ old(key: 'password') }}" required><br>
+            <x-alert />
 
-        <button type="submit">Send</button>
-    </form>
+            <form action="{{ Route('user.store') }}" method="POST" class="form-container">
+                @csrf
+                <div class="mb-4">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Complete Name"
+                        value="{{ old('name') }}" required><br>
+                </div>
+                <div class="mb-4">
+                    <label for="Email:">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Email Address"
+                        value="{{ old('email') }}" required><br>
+                </div>
+                <div class="mb-4">
+                    <label for="Password:">Password:</label>
+                    <input type="password" name="password" id="password" placeholder="Password"
+                        value="{{ old(key: 'password') }}" required><br>
+                </div>
+                <button type="submit" class="btn-success">Send</button>
+            </form>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

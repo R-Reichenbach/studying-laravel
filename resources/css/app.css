@@ -6,6 +6,66 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+--font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer components {
+.main-container{
+@apply flex flex-col h-screen bg-gray-100;
+}
+
+.header {
+@apply bg-blue-700 text-white p-4 w-full;
+}
+
+.header-content{
+@apply max-w-6xl mx-auto flex items-center;
+}
+
+.title-logo{
+@apply text-xl font-bold
+}
+
+.list-nav-link{
+@apply flex space-x-6 ml-6
+}
+
+.nav-link{
+@apply hover:text-gray-300 transition-colors;
+}
+
+.content{
+@apply flex-1 px-2 py-6 max-w-6xl mx-auto w-full
+}
+
+.content-title{
+@apply flex justify-between items-center mb-6;
+}
+
+.page-title{
+@apply text-2xl;
+}
+
+.btn-primary{
+@apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors;
+}
+
+.btn-success{
+@apply bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors;
+}
+
+.form-container {
+@apply mt-6 bg-white p-6 rounded-lg shadow-md;
+}
+
+.form-label{
+@apply block text-sm font-semibold;
+}
+
+.form-input{
+@apply border p-2 w-full mt-1 rounded-md border-blue-100 shadow-sm focus:border-blue-300
+focus:right-0 focus:ring-blue-200 focus:outline-none;
+}
+
 }
