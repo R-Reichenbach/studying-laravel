@@ -68,4 +68,7 @@
 focus:right-0 focus:ring-blue-200 focus:outline-none;
 }
 
+.pagination{
+    @apply mt-2 p-3;
+}
 }

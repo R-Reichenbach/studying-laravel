@@ -56,12 +56,12 @@
                         @endforelse
                     </tbody>
                 </table>
-
+            </div>
+            <div class="pagination">
+                {{ $users->links() }}
             </div>
         </div>
-
     </div>
-
 </body>
 
 </html>

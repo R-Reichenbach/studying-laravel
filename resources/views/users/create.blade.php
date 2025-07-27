@@ -22,7 +22,6 @@
             </div>
         </header>
 
-
         <div class="content">
             <div class="content-title">
                 <h1 class="page-title">Register</h1>
