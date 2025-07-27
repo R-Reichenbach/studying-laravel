@@ -36,17 +36,17 @@
                 <div class="mb-4">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" placeholder="Complete Name"
-                        value="{{ old('name') }}" required><br>
+                        value="{{ old('name') }}"><br>
                 </div>
                 <div class="mb-4">
                     <label for="Email:">Email:</label>
                     <input type="email" name="email" id="email" placeholder="Email Address"
-                        value="{{ old('email') }}" required><br>
+                        value="{{ old('email') }}"><br>
                 </div>
                 <div class="mb-4">
                     <label for="Password:">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Password"
-                        value="{{ old(key: 'password') }}" required><br>
+                    <input type="password" name="password" id="password" placeholder="Password with 6 min caracters"
+                        value="{{ old(key: 'password') }}"><br>
                 </div>
                 <button type="submit" class="btn-success">Send</button>
             </form>
