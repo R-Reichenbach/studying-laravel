@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite(['resources/css/app.css'])
+</head>
+
+<body>
+
+    <div class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <h2 class="title-logo"><a href=" {{ Route('dashboard') }}">Reichenbach</a></h2>
+                <ul class="list-nav-link">
+                    <li>
+                        <a href="#" class="nav-link">Users</a>
+                        <a href="{{ Route('dashboard') }}" class="nav-link">Exit</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="content-title">
+                <h1 class="page-title">Register</h1>
+                <a href="{{ route('user.index') }}" class="btn-primary">List</a>
+            </div>
+
+            <x-alert />
+
+            <form action="{{ Route('user.update', ['user' => $user]) }}" 
+            method="POST" class="form-container">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-4">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Complete Name"
+                        value="{{ old('name', $user->name ) }}"><br>
+                </div>
+                <div class="mb-4">
+                    <label for="Email:">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Email Address"
+                        value="{{ old('email', $user->email) }}"><br>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

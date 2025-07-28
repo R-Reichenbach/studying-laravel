@@ -13,10 +13,11 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function index(){
-       $users = User::orderByRaw('id')->paginate(1);
+    public function index()
+    {
+        $users = User::orderByRaw('id')->paginate(1);
 
-        return view('users.index', ['users'=> $users]);
+        return view('users.index', ['users' => $users]);
     }
 
     public function store(UserRequest $request)
@@ -32,8 +33,27 @@ class UserController extends Controller
 
             return redirect()->route('user.create')->with('success', 'User created successfully!');
         } catch (Exception $e) {
-            // Optionally, handle the exception or log it
             return back()->withInput()->with('error', 'Failed to create user!');
+        }
+    }
+
+    public function edit(User $User)
+    {
+        return view('users.edit', ['user' => $User]);
+    }
+
+    public function update(UserRequest $request, User $user)
+    {
+        try {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+
+            return redirect()->route('user.edit', ['user' => $user->id])->with('success', 'User updated successfully!');
+
+        } catch (Exception $e) {
+            return back()->withInput()->with('error', 'Failed to update user!');
         }
     }
 }

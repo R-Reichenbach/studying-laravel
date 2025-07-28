@@ -47,7 +47,11 @@
                                 <td class="content">{{ $user->id }}</td>
                                 <td class="content">{{ $user->email }}</td>
                                 <td class="content">{{ $user->id }}</td>
-                                <td class="content">Visualizar Editar Apagar</td>
+                                <td class="table-actions">
+                                    <a href="#">Visualizar</a>
+                                    <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar</a>
+                                    <a href="#">Apagar</a>
+                                </td>
                             </tr>
                         @empty
                             <div>
